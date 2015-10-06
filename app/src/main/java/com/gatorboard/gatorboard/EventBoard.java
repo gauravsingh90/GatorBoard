@@ -14,6 +14,10 @@ import java.util.List;
 
 public class EventBoard extends AppCompatActivity {
 
+    public static final String EVENT_TITLE = "eventTITLE";
+    public static final String EVENT_DESC = "eventDESC";
+    public static final int EVENT_ID = 1;
+
     protected List<Event> Events;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,10 @@ public class EventBoard extends AppCompatActivity {
 
     private void displayDetail(Event event) {
         //Log.d("MainActivity", "Displaying Event: "+ event.getEventDesc());
-        //Intent intent = new Intent(this,EventDescriptionActivity.class);
-
+        Intent intent = new Intent(this,Event_Details.class);
+        intent.putExtra(EVENT_TITLE, event.getEventName());
+        intent.putExtra(EVENT_DESC, event.getEventDesc());
+        startActivityForResult(intent, EVENT_ID);
     }
 
     @Override

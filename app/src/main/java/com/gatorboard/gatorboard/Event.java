@@ -5,17 +5,25 @@ package com.gatorboard.gatorboard;
  */
 public class Event {
     private int EventId;
+    private String EventName;
     private String EventDesc;
 
-    public Event(int EId, String EDesc)
+    public Event(int EId,String EName, String EDesc)
     {
         EventId = EId;
+        EventName = EName;
         EventDesc = EDesc;
     }
 
     public int getEventId()
     {
         return EventId;
+    }
+
+    public String getEventName()
+    {
+
+        return EventName;
     }
 
     public String getEventDesc()
@@ -26,6 +34,6 @@ public class Event {
 
     @Override
     public String toString(){
-        return EventDesc;
+        return EventName;
     }
 }
