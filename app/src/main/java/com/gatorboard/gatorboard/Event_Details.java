@@ -26,7 +26,7 @@ public class Event_Details extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_event__details, menu);
+        getMenuInflater().inflate(R.menu.menu_event_details, menu);
         return true;
     }
 
