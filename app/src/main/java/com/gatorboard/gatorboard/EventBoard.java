@@ -127,8 +127,7 @@ public class EventBoard extends ListActivity {
     }
 
     protected void updateDisplay() {
-        //array adapter sushma
-        //output.append(result + "\n");
+
         EventAdapter adapter = new EventAdapter(this, R.layout.item_event, Events);
         setListAdapter(adapter);
     }

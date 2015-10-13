@@ -38,6 +38,8 @@ public class EventAdapter extends ArrayAdapter<Event> {
         TextView tv = (TextView) view.findViewById(R.id.textView1);
         tv.setText(Event.toString());
 
+
+
         //Display Event photo in ImageView widget
         ImageView image = (ImageView) view.findViewById(R.id.imageView1);
         image.setImageBitmap(Event.getBitmap());
