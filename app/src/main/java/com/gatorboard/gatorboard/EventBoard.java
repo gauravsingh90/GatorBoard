@@ -51,7 +51,7 @@ public class EventBoard extends ListActivity {
     List<MyTask> tasks;
 
 
-    protected List<Event> Events;
+    List<Event> Events;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,8 +129,8 @@ public class EventBoard extends ListActivity {
     protected void updateDisplay() {
         //array adapter sushma
         //output.append(result + "\n");
-        //EventAdapter adapter = new EventAdapter(this, R.layout.item_flower, Events);
-        //setListAdapter(adapter);
+        EventAdapter adapter = new EventAdapter(this, R.layout.item_event, Events);
+        setListAdapter(adapter);
     }
 
     protected boolean isOnline() {

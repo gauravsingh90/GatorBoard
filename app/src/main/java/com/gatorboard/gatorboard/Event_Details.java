@@ -1,12 +1,13 @@
 package com.gatorboard.gatorboard;
 
+import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class Event_Details extends AppCompatActivity {
+public class Event_Details extends ListActivity {
 
     protected String EventName;
     protected String EventDesc;
@@ -15,10 +16,10 @@ public class Event_Details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        EventName = getIntent().getStringExtra(EventBoard.EVENT_TITLE);
+        //EventName = getIntent().getStringExtra(EventBoard.EVENT_TITLE);
         TextView eTitle = (TextView) findViewById(R.id.eventID);
         eTitle.setText(EventName);
-        EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
+        //EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.eventDesc);
         eDesc.setText(EventDesc);
     }
