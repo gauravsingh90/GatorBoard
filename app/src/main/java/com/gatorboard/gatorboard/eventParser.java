@@ -30,10 +30,10 @@ public class eventParser {
                 JSONObject obj = ar.getJSONObject(i);
                 Event event = new Event(1,"a","a");
 
-                event.setEventId(obj.getInt("eventId"));
-                event.setEventName(obj.getString("eventName"));
-                event.setEventDesc(obj.getString("eventDesc"));
-                event.setPhoto(obj.getString("photo"));
+                event.setEventId(obj.getInt("eventID"));
+                event.setEventName(obj.getString("evntName"));
+                event.setEventDesc(obj.getString("evntDesc"));
+                event.setPhoto(obj.getString("evntImgURL"));
 
                 //setting bitmap image from url
                 try {

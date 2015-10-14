@@ -120,7 +120,7 @@ public class EventBoard extends ListActivity {
         urlRequester p = new urlRequester();
         p.setMethod("GET");
         p.setUri(uri);
-        p.setParam("name", "Rosa");
+       // p.setParam("name", "Rosa");
 
         MyTask task = new MyTask();
         task.execute(p);
