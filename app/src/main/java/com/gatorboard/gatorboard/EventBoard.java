@@ -1,5 +1,6 @@
 package com.gatorboard.gatorboard;
 
+import android.os.Handler;
 import android.view.View.OnClickListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -37,11 +39,20 @@ import android.widget.Toast;
 import com.gatorboard.gatorboard.urlRequester;
 import com.gatorboard.gatorboard.urlConnectionManager;
 import com.gatorboard.gatorboard.eventParser;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.List;
 
 public class EventBoard extends ListActivity {
 
+    //For floating menu
+    private FloatingActionButton fab1;
+    private FloatingActionButton fab2;
+    private FloatingActionButton fab3;
+
+    private List<FloatingActionMenu> menus = new ArrayList<>();
+    private Handler mUiHandler = new Handler();
 
     private static final String PHOTOS_BASE_URL =
             "http://services.hanselandpetal.com/photos/";
@@ -58,16 +69,64 @@ public class EventBoard extends ListActivity {
         setContentView(R.layout.activity_event_board);
 
 
-
-
         pb = (ProgressBar) findViewById(R.id.progressBar1);
         pb.setVisibility(View.INVISIBLE);
 
 
-
-
         tasks = new ArrayList<>();
 
+        //Floating Menu
+        final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.ic_menu);
+        final FloatingActionButton programFab1 = new FloatingActionButton(this);
+        programFab1.setButtonSize(FloatingActionButton.SIZE_MINI);
+        programFab1.setLabelText("Programmatically added button");
+        programFab1.setImageResource(R.drawable.ic_edit);
+        menu1.addMenuButton(programFab1);
+        programFab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(EventBoard.this, programFab1.getLabelText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        menu1.setOnMenuButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (menu1.isOpened()) {
+                    Toast.makeText(EventBoard.this, menu1.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
+                }
+
+                menu1.toggle(true);
+            }
+        });
+
+        menus.add(menu1);
+        menu1.hideMenuButton(false);
+
+        int delay = 400;
+        for (final FloatingActionMenu menu : menus) {
+            mUiHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    menu.showMenuButton(true);
+                }
+            }, delay);
+            delay += 150;
+        }
+
+        menu1.setClosedOnTouchOutside(true);
+
+        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+
+        fab1.setEnabled(false);
+
+        fab1.setOnClickListener(clickListener);
+        fab2.setOnClickListener(clickListener);
+        fab3.setOnClickListener(clickListener);
 
     }
     @Override
@@ -175,5 +234,27 @@ public class EventBoard extends ListActivity {
         }
 
     }
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String text = "";
+
+            switch (v.getId()) {
+                case R.id.fab1:
+                    text = fab1.getLabelText();
+                    break;
+                case R.id.fab2:
+                    text = fab2.getLabelText();
+                    fab2.setVisibility(View.GONE);
+                    break;
+                case R.id.fab3:
+                    text = fab3.getLabelText();
+                    fab2.setVisibility(View.VISIBLE);
+                    break;
+            }
+
+            Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
+        }
+    };
 
 }
