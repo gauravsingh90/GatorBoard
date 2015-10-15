@@ -29,7 +29,7 @@
         fab:menu_labels_ellipsize="end"
         fab:menu_labels_singleLine="true"
         fab:menu_backgroundColor="#ccffffff"
-        fab:menu_fab_label="Menu label">
+        fab:menu_fab_label="Categories">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab1"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="Menu item 1" />
+            fab:fab_label="Art" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab2"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="Menu item 2" />
+            fab:fab_label="Food" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab3"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="@string/hello_world" />
+            fab:fab_label="Sports" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

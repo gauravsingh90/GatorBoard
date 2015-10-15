@@ -29,11 +29,12 @@ public class Event {
         return bitmap;
     }
 
-    public Event(int EId,String EName, String EDesc)
+    public Event(int EId,String EName, String EDesc, Bitmap bit)
     {
         EventId = EId;
         EventName = EName;
         EventDesc = EDesc;
+        bitmap = bit;
     }
 
 

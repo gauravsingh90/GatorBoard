@@ -61,8 +61,11 @@ public class EventBoard extends ListActivity {
     ProgressBar pb;
     List<MyTask> tasks;
 
-
+    //Dummy Data
     List<Event> Events;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +77,10 @@ public class EventBoard extends ListActivity {
 
 
         tasks = new ArrayList<>();
+        Events_DataProvider Dp = new Events_DataProvider(this);
+        Events = null;
+        Events =  Dp.getEventData();
+        updateDisplay();
 
         //Floating Menu
         final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
@@ -81,7 +88,7 @@ public class EventBoard extends ListActivity {
         imageView.setImageResource(R.drawable.ic_menu);
         final FloatingActionButton programFab1 = new FloatingActionButton(this);
         programFab1.setButtonSize(FloatingActionButton.SIZE_MINI);
-        programFab1.setLabelText("Programmatically added button");
+        programFab1.setLabelText("Academics");
         programFab1.setImageResource(R.drawable.ic_edit);
         menu1.addMenuButton(programFab1);
         programFab1.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +102,7 @@ public class EventBoard extends ListActivity {
             @Override
             public void onClick(View v) {
                 if (menu1.isOpened()) {
-                    Toast.makeText(EventBoard.this, menu1.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(EventBoard.this, menu1.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
                 }
 
                 menu1.toggle(true);
@@ -122,7 +129,7 @@ public class EventBoard extends ListActivity {
         fab2 = (FloatingActionButton) findViewById(R.id.fab2);
         fab3 = (FloatingActionButton) findViewById(R.id.fab3);
 
-        fab1.setEnabled(false);
+        //fab1.setEnabled(false);
 
         fab1.setOnClickListener(clickListener);
         fab2.setOnClickListener(clickListener);
@@ -147,7 +154,7 @@ public class EventBoard extends ListActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       this.startWorking();
+       //this.startWorking();
     }
 
 
@@ -234,6 +241,8 @@ public class EventBoard extends ListActivity {
         }
 
     }
+
+    //For floating Menu
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -245,7 +254,7 @@ public class EventBoard extends ListActivity {
                     break;
                 case R.id.fab2:
                     text = fab2.getLabelText();
-                    fab2.setVisibility(View.GONE);
+                    //fab2.setVisibility(View.GONE);
                     break;
                 case R.id.fab3:
                     text = fab3.getLabelText();

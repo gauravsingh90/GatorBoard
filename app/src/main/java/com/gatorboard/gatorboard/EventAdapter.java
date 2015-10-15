@@ -29,6 +29,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+
         LayoutInflater inflater =
                 (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_event, parent, false);

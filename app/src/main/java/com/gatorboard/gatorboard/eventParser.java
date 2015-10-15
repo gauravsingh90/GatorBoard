@@ -21,7 +21,7 @@ public class eventParser {
 
     public static List<Event> parseFeed(String content) {
 
-        try {
+       /* try {
             JSONArray ar = new JSONArray(content);
             List<Event> eventList = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class eventParser {
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
-        }
-
+        }*/
+        return null;
     }
 }
