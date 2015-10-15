@@ -17,17 +17,17 @@ public class Events_DataProvider {
 
     public Events_DataProvider(Context context){
         Context ctx = context;
-        Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.food);
-        Bitmap bMap1= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.carillon);
+        Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.d);
+        Bitmap bMap1= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.k);
        // Bitmap bMap2= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.marathon);
-        Bitmap bMap3= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.popupculture);
+        Bitmap bMap3= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.p);
         //Bitmap bMap4= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.recital);
-        Bitmap bMap5= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.soccer);
-        Bitmap bMap6= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.sports);
-        Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.students);
+        Bitmap bMap5= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
+        Bitmap bMap6= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
+        Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.m);
 
         Events.add(new Event(1,"Street Food Festival","A long description for Event 1",bMap));
-        Events.add(new Event(2,"Carillon Recital","A long description for Event 2",bMap1));
+        Events.add(new Event(2,"Karillon Recital","A long description for Event 2",bMap1));
         //Events.add(new Event(3,"EcoRun 5K Costume Run","A long description for Event 3",bMap));
         Events.add(new Event(3,"Pop Up Culture","A long description for Event 4",bMap3));
         //Events.add(new Event(5,"String Chamber Ensembles Recital","A long description for Event 5",bMap5));
