@@ -17,16 +17,24 @@ public class Events_DataProvider {
 
     public Events_DataProvider(Context context){
         Context ctx = context;
-        Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.logo1);
-        Events.add(new Event(1,"Event 1","A long description for Event 1",bMap));
-        Events.add(new Event(2,"Event 2","A long description for Event 2",bMap));
-        Events.add(new Event(3,"Event 3","A long description for Event 3",bMap));
-        Events.add(new Event(4,"Event 4","A long description for Event 4",bMap));
-        Events.add(new Event(5,"Event 5","A long description for Event 5",bMap));
-        Events.add(new Event(6,"Event 6","A long description for Event 6",bMap));
-        Events.add(new Event(7,"Event 7","A long description for Event 7",bMap));
-        Events.add(new Event(8,"Event 8","A long description for Event 8",bMap));
-        Events.add(new Event(9,"Event 9","A long description for Event 9",bMap));
+        Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.food);
+        Bitmap bMap1= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.carillon);
+       // Bitmap bMap2= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.marathon);
+        Bitmap bMap3= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.popupculture);
+        //Bitmap bMap4= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.recital);
+        Bitmap bMap5= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.soccer);
+        Bitmap bMap6= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.sports);
+        Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.students);
+
+        Events.add(new Event(1,"Street Food Festival","A long description for Event 1",bMap));
+        Events.add(new Event(2,"Carillon Recital","A long description for Event 2",bMap1));
+        //Events.add(new Event(3,"EcoRun 5K Costume Run","A long description for Event 3",bMap));
+        Events.add(new Event(3,"Pop Up Culture","A long description for Event 4",bMap3));
+        //Events.add(new Event(5,"String Chamber Ensembles Recital","A long description for Event 5",bMap5));
+        Events.add(new Event(4,"Soccer vs LSU","A long description for Event 6",bMap5));
+        Events.add(new Event(5,"USTA Regional Championship","A long description for Event 7",bMap6));
+        Events.add(new Event(6,"Airwatch CodeDash","A long description for Event 8",bMap7));
+        /*Events.add(new Event(9,"Event 9","A long description for Event 9",bMap));
         Events.add(new Event(10,"Event 10","A long description for Event 10",bMap));
         Events.add(new Event(11,"Event 11","A long description for Event 11",bMap));
         Events.add(new Event(12,"Event 12","A long description for Event 12",bMap));
@@ -35,7 +43,7 @@ public class Events_DataProvider {
         Events.add(new Event(15,"Event 15","A long description for Event 15",bMap));
         Events.add(new Event(16,"Event 16","A long description for Event 16",bMap));
         Events.add(new Event(17,"Event 17","A long description for Event 17",bMap));
-        Events.add(new Event(18,"Event 18","A long description for Event 18",bMap));
+        Events.add(new Event(18,"Event 18","A long description for Event 18",bMap));*/
     }
 
     public  List<Event> getEventData(){
