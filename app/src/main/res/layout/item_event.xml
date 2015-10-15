@@ -22,6 +22,7 @@
         android:layout_toRightOf="@+id/imageView1"
         android:layout_centerVertical="true"
         android:text="@string/event_name_placeholder"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
