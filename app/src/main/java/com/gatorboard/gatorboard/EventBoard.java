@@ -104,7 +104,6 @@ public class EventBoard extends ListActivity {
                 if (menu1.isOpened()) {
                     //Toast.makeText(EventBoard.this, menu1.getMenuButtonLabelText(), Toast.LENGTH_SHORT).show();
                 }
-
                 menu1.toggle(true);
             }
         });
