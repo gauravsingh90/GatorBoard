@@ -61,7 +61,7 @@ public class EventBoard extends ListActivity {
     ProgressBar pb;
     List<MyTask> tasks;
 
-    //Dummy Data
+
     List<Event> Events;
 
 
