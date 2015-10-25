@@ -62,8 +62,6 @@ public class EventBoard extends ListActivity {
     List<MyTask> tasks;
 
 
-
-
     List<Event> Events;
 
 
