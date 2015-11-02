@@ -1,6 +1,7 @@
 package com.gatorboard.gatorboard;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.View.OnClickListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,16 +55,16 @@ public class EventBoard extends ListActivity {
     private List<FloatingActionMenu> menus = new ArrayList<>();
     private Handler mUiHandler = new Handler();
 
-    private static final String PHOTOS_BASE_URL =
-            "http://services.hanselandpetal.com/photos/";
+    private static final String PHOTOS_BASE_URL = "http://services.hanselandpetal.com/photos/";
 
 
     ProgressBar pb;
     List<MyTask> tasks;
 
 
-    List<Event> Events;
-
+    List<Event> Events = null;
+    public static final String EVENT_NAME = "eventName";
+    public static final int DETAIL_REQUEST_CODE =  1001;
 
 
     @Override
@@ -78,7 +79,6 @@ public class EventBoard extends ListActivity {
 
         tasks = new ArrayList<>();
         Events_DataProvider Dp = new Events_DataProvider(this);
-        Events = null;
         Events =  Dp.getEventData();
         updateDisplay();
 
@@ -133,6 +133,8 @@ public class EventBoard extends ListActivity {
         fab1.setOnClickListener(clickListener);
         fab2.setOnClickListener(clickListener);
         fab3.setOnClickListener(clickListener);
+
+
 
     }
     @Override
@@ -193,18 +195,31 @@ public class EventBoard extends ListActivity {
 
     protected void updateDisplay() {
 
+        ListView listView = (ListView) findViewById(android.R.id.list);
         EventAdapter adapter = new EventAdapter(this, R.layout.item_event, Events);
-        setListAdapter(adapter);
+        listView.setAdapter(adapter); //setListAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Event event = Events.get(position);
+                displayDetail(event);
+            }
+        });
+
+    }
+
+    private void displayDetail(Event event) {
+        Log.d("activity_event_board", "Displaying Event: " + event.getEventName());
+        Intent intent = new Intent(this, Event_Details.class);
+        intent.putExtra(EVENT_NAME,event.getEventName());
+        startActivityForResult(intent,DETAIL_REQUEST_CODE );
+
     }
 
     protected boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        } else {
-            return false;
-        }
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     private class MyTask extends AsyncTask<urlRequester, String,  List<Event>> {
