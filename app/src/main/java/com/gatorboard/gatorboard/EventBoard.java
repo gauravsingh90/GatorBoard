@@ -18,20 +18,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
 import android.app.ListActivity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 
 import java.io.PrintWriter;
 import android.widget.ProgressBar;
@@ -44,8 +35,22 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.List;
+import android.app.Dialog;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 
-public class EventBoard extends ListActivity {
+import java.util.Calendar;
+import java.sql.Date;
+import android.app.DatePickerDialog;
+import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
+
+public class EventBoard extends AppCompatActivity {
+
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
 
     //For floating menu
     private FloatingActionButton fab1;
@@ -72,6 +77,37 @@ public class EventBoard extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_board);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar.setLogo(R.drawable.logo30);
+        toolbar.setTitle(" Gator Board");
+        setSupportActionBar(toolbar);
+
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_settings:
+                        Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_share:
+                        Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_calender: {
+                        Toast.makeText(EventBoard.this, "action_calender", Toast.LENGTH_SHORT).show();
+                        showDialog(999);
+                    }
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
 
         pb = (ProgressBar) findViewById(R.id.progressBar1);
         pb.setVisibility(View.INVISIBLE);
@@ -279,5 +315,26 @@ public class EventBoard extends ListActivity {
             Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
         }
     };
+
+    protected Dialog onCreateDialog(int id) {
+        if (id == 999) {
+            return new DatePickerDialog(this, myDateListener, year, month, day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            showDate(arg1, arg2 + 1, arg3);
+        }
+    };
+
+    private void showDate(int year, int month, int day) {
+        StringBuilder datepicker=new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year);
+        Toast.makeText(EventBoard.this, datepicker, Toast.LENGTH_SHORT).show();
+    }
+
 
 }
