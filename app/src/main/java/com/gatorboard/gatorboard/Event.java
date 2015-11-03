@@ -9,7 +9,7 @@ public class Event {
 
     private int EventId;
     private String EventName;
-    private String EventDesc;
+    private String CategoryID;
     private String photo;
     private Bitmap bitmap;
 
@@ -29,11 +29,11 @@ public class Event {
         return bitmap;
     }
 
-    public Event(int EId,String EName, String EDesc, Bitmap bit)
+    public Event(int EId,String EName, String catID, Bitmap bit)
     {
         EventId = EId;
         EventName = EName;
-        EventDesc = EDesc;
+        CategoryID= catID;
         bitmap = bit;
     }
 
@@ -49,19 +49,21 @@ public class Event {
         return EventName;
     }
 
-    public String getEventDesc()
-    {
 
-        return EventDesc;
-    }
     public void setEventId(int eventId) {
         EventId = eventId;
     }
     public void setEventName(String eventName) {
         EventName = eventName;
     }
-    public void setEventDesc(String eventDesc) {
-        EventDesc = eventDesc;
+
+
+    public String getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(String categoryID) {
+        CategoryID = categoryID;
     }
 
     @Override

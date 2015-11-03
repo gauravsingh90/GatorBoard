@@ -32,8 +32,8 @@ public class eventParser {
 
                 event.setEventId(obj.getInt("eventID"));
                 event.setEventName(obj.getString("evntName"));
-                event.setEventDesc(obj.getString("evntDesc"));
-                event.setPhoto(obj.getString("evntImgURL"));
+                event.setCategoryID(obj.getString("catID"));
+                //event.setPhoto(obj.getString("evntImgURL"));
 
                 //setting bitmap image from url
                 try {
