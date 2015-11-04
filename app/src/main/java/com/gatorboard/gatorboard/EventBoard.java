@@ -117,7 +117,7 @@ public class EventBoard extends AppCompatActivity {
         Events_DataProvider Dp = new Events_DataProvider(this);
         Events =  Dp.getEventData();
         updateDisplay();
-
+        tasks = new ArrayList<>();
         //Floating Menu
         final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
         ImageView imageView = new ImageView(this);
@@ -205,7 +205,7 @@ public class EventBoard extends AppCompatActivity {
 
 
 
-   //discuss format of data
+
     public void startWorking(){
         if (isOnline()) {
 
@@ -228,6 +228,9 @@ public class EventBoard extends AppCompatActivity {
         MyTask task = new MyTask();
         task.execute(p);
     }
+
+
+
 
     protected void updateDisplay() {
 

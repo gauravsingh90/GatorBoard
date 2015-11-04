@@ -1,17 +1,48 @@
 package com.gatorboard.gatorboard;
 
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.gatorboard.gatorboard.urlRequester;
+import com.gatorboard.gatorboard.urlConnectionManager;
+import com.gatorboard.gatorboard.eventParser;
+import com.gatorboard.gatorboard.eventDescParser;
+import com.gatorboard.gatorboard.EventDesc;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 public class Event_Details extends ListActivity {
 
     protected String EventName;
     protected String EventDesc;
+
+
+    //progress bar and mytask for webservice
+    /*ProgressBar pb;
+    List<MyTask> tasks;
+    //resolve error add to xml
+    tasks = new ArrayList<>();
+
+    pb = (ProgressBar) findViewById(R.id.progressBar1);
+    pb.setVisibility(View.INVISIBLE);*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,4 +79,91 @@ public class Event_Details extends ListActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //webservice call from event description class
+    //uncomment if more than webservice from eventboard age is not sufficient to get all data
+    /*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        this.startWorking();
+    }
+    public void startWorking(){
+        if (isOnline()) {
+
+            //Gaurav to give the webservice URL
+            requestData("http://services.hanselandpetal.com/secure/flowers.json");
+        } else {
+            System.out.println("inside offline");
+            Toast.makeText(this, "Network is not available", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    private void requestData(String uri) {
+
+        urlRequester p = new urlRequester();
+        p.setMethod("GET");
+        p.setUri(uri);
+        //set parameter eventID here
+         p.setParam("EventID", "Rosa");
+
+        MyTask task = new MyTask();
+        task.execute(p);
+    }
+
+    protected void updateDisplay() {
+
+       //update display accordingly
+
+    }
+
+
+
+
+
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    private class MyTask extends AsyncTask<urlRequester, String,  EventDesc> {
+
+        @Override
+        protected void onPreExecute() {
+            if (tasks.size() == 0) {
+                pb.setVisibility(View.VISIBLE);
+            }
+            tasks.add(this);
+        }
+
+        @Override
+        protected EventDesc doInBackground(urlRequester... params) {
+            EventDesc EventDes = new EventDesc();
+            String content = urlConnectionManager.getData(params[0]);
+            EventDes = eventDescParser.parseFeedDesc(content);
+            return EventDes;
+
+        }
+
+        @Override
+        protected void onPostExecute(EventDesc result) {
+
+            updateDisplay();
+
+            tasks.remove(this);
+            if (tasks.size() == 0) {
+                pb.setVisibility(View.INVISIBLE);
+            }
+
+
+
+        }
+
+    }
+*/
+
 }
+

@@ -1,30 +1,16 @@
 package com.gatorboard.gatorboard;
+
 import android.graphics.Bitmap;
 
 /**
- * Created by sushma on 10/6/2015.
+ * Created by Aswini on 11/3/2015.
  */
-public class Event {
+public class EventDesc {
 
 
-    private int EventId;
-    private String EventName;
-    private String CategoryID;
-    //picture to be displayed in scrollview of images
-    private String photo;
 
-    //additional fields if it is possible to encapsulate this in one webservice
-    private String evntStartDate;
-    private String evntEndDate;
-    private String evntStartTime;
-    private String evntEndTime;
-    private String evntLocation;
-    private String evntDesc;
-    private String evntTags;
-
-    //picture to be displayed in eventDescription
-    private String evntImgURL;
-    private Bitmap bitmap;
+        private int EventId;
+        private String EventName;
 
     public int getEventId() {
         return EventId;
@@ -42,21 +28,19 @@ public class Event {
         EventName = eventName;
     }
 
-    public String getCategoryID() {
-        return CategoryID;
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
-    public void setCategoryID(String categoryID) {
-        CategoryID = categoryID;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+        private String evntStartDate;
+        private String evntEndDate;
+        private String evntStartTime;
+        private String evntEndTime;
+        private String evntLocation;
+        private String evntDesc;
+        private String evntTags;
+        private String evntImgURL;
+        private Bitmap bitmap;
 
     public String getEvntStartDate() {
         return evntStartDate;
@@ -122,16 +106,35 @@ public class Event {
         this.evntImgURL = evntImgURL;
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
-    }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
-    }
+
+
+    public Bitmap getBitmap() {
+            return bitmap;
+        }
+
+   /* public EventDesc(int EId,String EName,String StartDate,String EndDate, String StartTime, String EndTime, String eLocation, String eDesc, String eTags, String eImgURL, Bitmap bitmap)
+    {
+        EventId = EId;
+        EventName = EName;
+        evntStartDate=StartDate;
+        evntEndDate = EndDate;
+        evntStartTime = StartTime;
+        evntEndTime = EndDate;
+        evntLocation = eLocation;
+        evntDesc = eDesc;
+        evntTags = eTags;
+         evntImgURL = eImgURL;
+         bitmap = bitmap;
+    }*/
+
+
+
 
     @Override
-    public String toString(){
-        return EventName;
+        public String toString(){
+            return EventName;
+        }
     }
-}
+
+
