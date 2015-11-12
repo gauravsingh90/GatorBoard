@@ -29,7 +29,7 @@ public class eventParser {
 
                 JSONObject obj = ar.getJSONObject(i);
                 Event event = new Event();
-
+                System.out.print("here here");
                 event.setEventId(obj.getInt("eventID"));
                 event.setEventName(obj.getString("evntName"));
                 event.setCategoryID(obj.getString("catID"));
@@ -51,7 +51,7 @@ public class eventParser {
 
                 //setting extra fields in event class to reduce number of webservices
 
-                event.setEvntDesc(obj.getString("evntDesc"));
+               /* event.setEvntDesc(obj.getString("evntDesc"));
                 event.setEvntStartDate(obj.getString("evntStartDate"));
                 event.setEvntEndDate(obj.getString("evntEndDate"));
                 event.setEvntStartTime(obj.getString("evntStartTime"));
@@ -69,7 +69,7 @@ public class eventParser {
                     in.close();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 eventList.add(event);
             }

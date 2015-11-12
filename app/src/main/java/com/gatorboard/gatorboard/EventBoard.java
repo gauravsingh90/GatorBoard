@@ -191,7 +191,8 @@ public class EventBoard extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       //this.startWorking();
+        System.out.print("starting");
+       this.startWorking();
     }
 
 

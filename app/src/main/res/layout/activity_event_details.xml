@@ -79,6 +79,7 @@
         android:layout_height="wrap_content"
         android:text="LIKE"
         android:id="@+id/likebutton"
+        android:src="@drawable/d"
         android:layout_marginRight="81dp"
         android:layout_marginEnd="81dp"
         android:layout_below="@+id/frameLayout"

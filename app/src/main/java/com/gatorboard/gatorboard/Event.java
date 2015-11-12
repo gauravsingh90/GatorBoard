@@ -13,7 +13,17 @@ public class Event {
     //picture to be displayed in scrollview of images
     private String photo;
 
+    public Event(int eventId, String eventName, String categoryID, Bitmap bitmap) {
+        EventId = eventId;
+        EventName = eventName;
+        CategoryID = categoryID;
+        this.bitmap = bitmap;
+    }
+
+    private Bitmap bitmap;
+
     //additional fields if it is possible to encapsulate this in one webservice
+    /*
     private String evntStartDate;
     private String evntEndDate;
     private String evntStartTime;
@@ -24,7 +34,7 @@ public class Event {
 
     //picture to be displayed in eventDescription
     private String evntImgURL;
-    private Bitmap bitmap;
+   */
 
     public int getEventId() {
         return EventId;
@@ -58,7 +68,7 @@ public class Event {
         this.photo = photo;
     }
 
-    public String getEvntStartDate() {
+   /* public String getEvntStartDate() {
         return evntStartDate;
     }
 
@@ -121,7 +131,7 @@ public class Event {
     public void setEvntImgURL(String evntImgURL) {
         this.evntImgURL = evntImgURL;
     }
-
+*/
     public Bitmap getBitmap() {
         return bitmap;
     }
