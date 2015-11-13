@@ -30,9 +30,9 @@ public class eventParser {
                 JSONObject obj = ar.getJSONObject(i);
                 Event event = new Event();
                 System.out.print("here here");
-                event.setEventId(obj.getInt("eventID"));
+                /*event.setEventId(obj.getInt("eventID"));
                 event.setEventName(obj.getString("evntName"));
-                event.setCategoryID(obj.getString("catID"));
+                event.setCategoryID(obj.getString("catID"));*/
                 //photo to be displayed in eventlist .This is to be replaced with offline images with starting letter of category
                 //event.setPhoto(obj.getString("evntImgURL"));
 
