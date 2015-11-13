@@ -2,7 +2,8 @@ package com.gatorboard.gatorboard;
 
 import android.os.Handler;
 import android.util.Log;
-import android.view.View.OnClickListener;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
@@ -12,38 +13,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.app.ListActivity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 
-import java.io.PrintWriter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.gatorboard.gatorboard.urlRequester;
-import com.gatorboard.gatorboard.urlConnectionManager;
-import com.gatorboard.gatorboard.eventParser;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
-import java.util.List;
 import android.app.Dialog;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 
 import java.util.Calendar;
-import java.sql.Date;
+
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
-import android.widget.DatePicker.OnDateChangedListener;
 
 public class EventBoard extends AppCompatActivity {
 
@@ -64,19 +54,23 @@ public class EventBoard extends AppCompatActivity {
 
 
     ProgressBar pb;
-    List<MyTask> tasks;
+    //List<MyTask> tasks;
 
-
+    private EventAdapter adapter;
+    private ListView listView;
     List<Event> Events = null;
     public static final String EVENT_NAME = "eventName";
+    public static final String EVENT_DESC = "eventDesc";
     public static final int DETAIL_REQUEST_CODE =  1001;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("StackSites", "OnCreate()");
         setContentView(R.layout.activity_event_board);
 
+        listView = (ListView) findViewById(android.R.id.list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         toolbar.setLogo(R.drawable.logo30);
@@ -113,10 +107,30 @@ public class EventBoard extends AppCompatActivity {
         pb.setVisibility(View.INVISIBLE);
 
 
-        tasks = new ArrayList<>();
-        Events_DataProvider Dp = new Events_DataProvider(this);
-        Events =  Dp.getEventData();
-        updateDisplay();
+        //tasks = new ArrayList<>();
+
+        if(isNetworkAvailable()){
+            Log.i("StackSites", "starting download Task");
+            SitesDownloadTask download = new SitesDownloadTask();
+            download.execute();
+        }else{
+            listView = (ListView) findViewById(android.R.id.list);
+
+            adapter = new EventAdapter(getApplicationContext(), -1, SitesXmlPullParser.getEventsFromFile(EventBoard.this));
+            listView.setAdapter(adapter);
+        }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Event event =  adapter.getItem(position);
+                displayDetail(event);
+            }
+        });
+
+        //Events_DataProvider Dp = new Events_DataProvider(this);
+        //Events =  Dp.getEventData();
+        //updateDisplay();
 
         //Floating Menu
         final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
@@ -206,7 +220,7 @@ public class EventBoard extends AppCompatActivity {
 
 
    //discuss format of data
-    public void startWorking(){
+    /*public void startWorking(){
         if (isOnline()) {
 
             System.out.println("finally here");
@@ -215,10 +229,10 @@ public class EventBoard extends AppCompatActivity {
             System.out.println("inside offline");
             Toast.makeText(this, "Network is not available", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
 
-    private void requestData(String uri) {
+    /*private void requestData(String uri) {
 
         urlRequester p = new urlRequester();
         p.setMethod("GET");
@@ -227,27 +241,22 @@ public class EventBoard extends AppCompatActivity {
 
         MyTask task = new MyTask();
         task.execute(p);
-    }
+    }*/
 
     protected void updateDisplay() {
 
-        ListView listView = (ListView) findViewById(android.R.id.list);
-        EventAdapter adapter = new EventAdapter(this, R.layout.item_event, Events);
+
+        adapter = new EventAdapter(this, R.layout.item_event, Events);
         listView.setAdapter(adapter); //setListAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Event event = Events.get(position);
-                displayDetail(event);
-            }
-        });
+
 
     }
 
     private void displayDetail(Event event) {
-        Log.d("activity_event_board", "Displaying Event: " + event.getEventName());
+        Log.d("activity_event_board", "Displaying Event: " + event.getEvntName());
         Intent intent = new Intent(this, Event_Details.class);
-        intent.putExtra(EVENT_NAME,event.getEventName());
+        intent.putExtra(EVENT_NAME,event.getEvntName());
+        intent.putExtra(EVENT_DESC,event.getEvntDesc());
         startActivityForResult(intent,DETAIL_REQUEST_CODE );
 
     }
@@ -258,7 +267,7 @@ public class EventBoard extends AppCompatActivity {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
-    private class MyTask extends AsyncTask<urlRequester, String,  List<Event>> {
+   /* private class MyTask extends AsyncTask<urlRequester, String,  List<Event>> {
 
         @Override
         protected void onPreExecute() {
@@ -290,7 +299,7 @@ public class EventBoard extends AppCompatActivity {
 
         }
 
-    }
+    }*/
 
     //For floating Menu
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -334,6 +343,38 @@ public class EventBoard extends AppCompatActivity {
         StringBuilder datepicker=new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year);
         Toast.makeText(EventBoard.this, datepicker, Toast.LENGTH_SHORT).show();
+    }
+
+    private class SitesDownloadTask extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            //Download the file
+            try {
+                Downloader.DownloadFromUrl("https://dl.dropboxusercontent.com/u/58872088/event.xml", openFileOutput("event.xml", Context.MODE_PRIVATE));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            //setup our Adapter and set it to the ListView.
+            /*SitesXmlPullParser Dpr = new SitesXmlPullParser();
+            Events = Dpr.getEventsFromFile(EventBoard.this);*/
+            adapter = new EventAdapter(EventBoard.this, -1, SitesXmlPullParser.getEventsFromFile(EventBoard.this));
+            listView.setAdapter(adapter);
+            Log.i("StackSites", "adapter size = "+ adapter.getCount());
+        }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 

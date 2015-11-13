@@ -47,11 +47,6 @@
         android:layout_alignBottom="@+id/frameLayout"
         android:layout_below="@+id/frameLayout" />
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/textView2" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,8 +54,13 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/textView3" />
-    </ScrollView>
 
+
+<ScrollView
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:id="@+id/scrollView"
+android:layout_below="@+id/textView2" >
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -69,10 +69,11 @@
         android:id="@+id/textView"
         android:padding="@dimen/abc_action_bar_content_inset_material"
         android:outlineProvider="paddedBounds"
-        android:layout_alignTop="@+id/scrollView"
+        android:layout_alignTop="@+id/textView3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="42dp" />
+</ScrollView>
 
     <Button
         android:layout_width="wrap_content"

@@ -37,7 +37,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
         //Display Event name in the TextView widget
         Event Event = EventList.get(position);
         TextView tv = (TextView) view.findViewById(R.id.textView1);
-        tv.setText(Event.toString());
+        tv.setText(Event.getEvntName());
 
 
 

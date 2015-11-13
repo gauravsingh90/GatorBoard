@@ -7,67 +7,95 @@ import android.graphics.Bitmap;
 public class Event {
 
 
-    private int EventId;
-    private String EventName;
-    private String CategoryID;
-    private String photo;
+    private String eventID;
+    private String evntName;
+    private String evntStartDate;
+    private String evntStartTime;
+    private String evntLocation;
+    private String evntDesc;
+    private String likes;
+    private String catname;
+    private String evntImgURL;
     private Bitmap bitmap;
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+
+    public String getEventID() {
+        return eventID;
     }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getEvntName() {
+        return evntName;
+    }
+
+    public void setEvntName(String evntName) {
+        this.evntName = evntName;
+    }
+
+    public String getEvntStartDate() {
+        return evntStartDate;
+    }
+
+    public void setEvntStartDate(String evntStartDate) {
+        this.evntStartDate = evntStartDate;
+    }
+
+    public String getEvntStartTime() {
+        return evntStartTime;
+    }
+
+    public void setEvntStartTime(String evntStartTime) {
+        this.evntStartTime = evntStartTime;
+    }
+
+    public String getEvntLocation() {
+        return evntLocation;
+    }
+
+    public void setEvntLocation(String evntLocation) {
+        this.evntLocation = evntLocation;
+    }
+
+    public String getEvntDesc() {
+        return evntDesc;
+    }
+
+    public void setEvntDesc(String evntDesc) {
+        this.evntDesc = evntDesc;
+    }
+
+    public String getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String likes) {
+        this.likes = likes;
+    }
+
+    public String getCatname() {
+        return catname;
+    }
+
+    public void setCatname(String catname) {
+        this.catname = catname;
+    }
+
+    public String getEvntImgURL() {
+        return evntImgURL;
+    }
+
+    public void setEvntImgURL(String evntImgURL) {
+        this.evntImgURL = evntImgURL;
     }
 
     public Bitmap getBitmap() {
         return bitmap;
     }
 
-    public Event(int EId,String EName, String catID, Bitmap bit)
-    {
-        EventId = EId;
-        EventName = EName;
-        CategoryID= catID;
-        bitmap = bit;
-    }
-
-
-    public int getEventId()
-    {
-        return EventId;
-    }
-
-    public String getEventName()
-    {
-
-        return EventName;
-    }
-
-
-    public void setEventId(int eventId) {
-        EventId = eventId;
-    }
-    public void setEventName(String eventName) {
-        EventName = eventName;
-    }
-
-
-    public String getCategoryID() {
-        return CategoryID;
-    }
-
-    public void setCategoryID(String categoryID) {
-        CategoryID = categoryID;
-    }
-
-    @Override
-    public String toString(){
-        return EventName;
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 }

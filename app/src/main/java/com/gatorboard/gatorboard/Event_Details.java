@@ -20,10 +20,10 @@ public class Event_Details extends ListActivity {
         EventName = getIntent().getStringExtra(EventBoard.EVENT_NAME);
         TextView eTitle = (TextView) findViewById(R.id.txtStoreName);
         eTitle.setText(EventName);
-        /*EventDesc = getIntent().getStringExtra(EventBoard.EVENT_NAME);
+        EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
         eDesc.setText(EventDesc);
-        eDesc.setMovementMethod(new ScrollingMovementMethod());*/
+        //eDesc.setMovementMethod(new ScrollingMovementMethod());*/
     }
 
     @Override
