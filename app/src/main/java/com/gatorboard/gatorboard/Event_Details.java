@@ -54,6 +54,20 @@ public class Event_Details extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+//LOCATION BUTTON LISTENER
+        final Button location = (Button) findViewById(R.id.locationbutton);
+
+        location.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+
+            }
+        });
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
