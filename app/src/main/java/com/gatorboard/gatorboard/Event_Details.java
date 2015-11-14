@@ -1,6 +1,7 @@
 package com.gatorboard.gatorboard;
 
 import android.app.ListActivity;
+import java.util.HashMap;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -37,6 +38,9 @@ public class Event_Details extends ListActivity {
     protected String EventDesc;
     protected String Elikes;
 
+    public int counter =0;
+    HashMap<String, String> meMap=new HashMap<String, String>();
+
 
     //progress bar and mytask for webservice
     /*ProgressBar pb;
@@ -49,6 +53,8 @@ public class Event_Details extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
         EventName = getIntent().getStringExtra(EventBoard.EVENT_NAME);
@@ -57,31 +63,58 @@ public class Event_Details extends ListActivity {
         EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
         eDesc.setText(EventDesc);
+
+
+
         Elikes = getIntent().getStringExtra(EventBoard.EVENT_LIKES);
-        final TextView eLike = (TextView) findViewById(R.id.likeCount);
-        eLike.setText(Elikes);
+       TextView eLike = (TextView) findViewById(R.id.likeCount);
+        eLike.setText(String.valueOf(Elikes));
 
 
-        Button like = (Button) findViewById(R.id.likebutton);
+
+
+
+
+        final Button like = (Button) findViewById(R.id.likebutton);
 
        like.setOnClickListener(new View.OnClickListener() {
-
+           int flag=1;
             @Override
 
             public void onClick(View v) {
+
+              TextView  eLiket = (TextView) findViewById(R.id.likeCount);
                 //incrementing like count
 
-                String tvValue = eLike.getText().toString();
+
+                String tvValue = eLiket.getText().toString();
 
                 if (!tvValue.equals("")) {
+
                     int num1 = Integer.parseInt(tvValue);
                     num1=num1+1;
-                    eLike.setText(String.valueOf(num1));
+
+                    eLiket.setText(String.valueOf(num1));
+
 
                 }
+                if(flag==1) {
+                    like.setEnabled(false);
+                    like.setClickable(false);
+                    like.setBackgroundResource(R.drawable.like_click);
+
+                }
+                else
+                {
+                    like.setEnabled(true);
+                    like.setClickable(true);
+                    like.setBackgroundResource(R.drawable.like);
+                }
+                flag=0;
 
             }
         });
+
 
         //eDesc.setMovementMethod(new ScrollingMovementMethod());*/
     }

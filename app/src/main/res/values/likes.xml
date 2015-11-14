@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="like_keys">
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="like_values">
+        <item>20</item>
+        <item>24</item>
+    </string-array>
+</resources>

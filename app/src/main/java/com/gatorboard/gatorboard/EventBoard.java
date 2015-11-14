@@ -265,6 +265,7 @@ public class EventBoard extends AppCompatActivity {
         intent.putExtra(EVENT_LIKES,event.getLikes());
         startActivityForResult(intent,DETAIL_REQUEST_CODE );
 
+
     }
 
     protected boolean isOnline() {
