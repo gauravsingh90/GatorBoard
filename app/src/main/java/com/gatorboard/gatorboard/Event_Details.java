@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,6 +35,7 @@ public class Event_Details extends ListActivity {
 
     protected String EventName;
     protected String EventDesc;
+    protected String Elikes;
 
 
     //progress bar and mytask for webservice
@@ -54,6 +57,32 @@ public class Event_Details extends ListActivity {
         EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
         eDesc.setText(EventDesc);
+        Elikes = getIntent().getStringExtra(EventBoard.EVENT_LIKES);
+        final TextView eLike = (TextView) findViewById(R.id.likeCount);
+        eLike.setText(Elikes);
+
+
+        Button like = (Button) findViewById(R.id.likebutton);
+
+       like.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+                //incrementing like count
+
+                String tvValue = eLike.getText().toString();
+
+                if (!tvValue.equals("")) {
+                    int num1 = Integer.parseInt(tvValue);
+                    num1=num1+1;
+                    eLike.setText(String.valueOf(num1));
+
+                }
+
+            }
+        });
+
         //eDesc.setMovementMethod(new ScrollingMovementMethod());*/
     }
 
