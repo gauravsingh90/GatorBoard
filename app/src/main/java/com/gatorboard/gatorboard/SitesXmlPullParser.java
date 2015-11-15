@@ -80,9 +80,9 @@ public class SitesXmlPullParser {
                         if (tagname.equalsIgnoreCase(KEY_EVENT)) {
                             // if </site> then we are done with current Site
                             // add it to the list.
-                            Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.d);
-                            curEvent.setBitmap(bMap);
+
                             Events.add(curEvent);
+
                         } else if (tagname.equalsIgnoreCase(KEY_ID)) {
                             // if </name> use setName() on curSite
                             curEvent.setEventID(curText);
@@ -104,6 +104,21 @@ public class SitesXmlPullParser {
                         } else if (tagname.equalsIgnoreCase(KEY_CATNAME)) {
                             // if </about> use setAbout() on curSite
                             curEvent.setCatname(curText);
+                            Bitmap bMap ;
+                            if (curText.equalsIgnoreCase("arts")){
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.arts);
+                            }
+                            else if(curText.equalsIgnoreCase("Academics")){
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.academics);
+                            }
+                            else if(curText.equalsIgnoreCase("Athletics")){
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.atheletics);
+                            }
+                            else {
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.o);
+                            }
+
+                            curEvent.setBitmap(bMap);
                         } else if (tagname.equalsIgnoreCase(KEY_IMAGE_URL)) {
                             // if </image> use setImgUrl() on curSite
                             curEvent.setEvntImgURL(curText);
