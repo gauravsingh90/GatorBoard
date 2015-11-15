@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.os.AsyncTask;
@@ -63,6 +65,8 @@ public class EventBoard extends AppCompatActivity {
     List<Event> Events = null;
     public static final String EVENT_NAME = "eventName";
     public static final String EVENT_DESC = "eventDesc";
+    public static final String EVENT_LIKES = "likes";
+
     public static final int DETAIL_REQUEST_CODE =  1001;
 
 
@@ -192,6 +196,7 @@ public class EventBoard extends AppCompatActivity {
         //menu1.toggle(true);
 
 
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -262,7 +267,8 @@ public class EventBoard extends AppCompatActivity {
         Log.d("activity_event_board", "Displaying Event: " + event.getEvntName());
         Intent intent = new Intent(this, Event_Details.class);
         intent.putExtra(EVENT_NAME,event.getEvntName());
-        intent.putExtra(EVENT_DESC, event.getEvntDesc());
+        intent.putExtra(EVENT_DESC,event.getEvntDesc());
+        intent.putExtra(EVENT_LIKES,event.getLikes());
         startActivityForResult(intent,DETAIL_REQUEST_CODE );
 
     }
@@ -354,7 +360,6 @@ public class EventBoard extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
             showDate(arg1, arg2 + 1, arg3);
-
         }
     };
 
