@@ -28,7 +28,7 @@ public class eventParser {
             for (int i = 0; i < ar.length(); i++) {
 
                 JSONObject obj = ar.getJSONObject(i);
-                Event event = new Event();
+                //Event event = new Event();
                 System.out.print("here here");
                 /*event.setEventId(obj.getInt("eventID"));
                 event.setEventName(obj.getString("evntName"));
@@ -71,7 +71,7 @@ public class eventParser {
                     e.printStackTrace();
                 }*/
 
-                eventList.add(event);
+                //eventList.add(event);
             }
 
             return eventList;

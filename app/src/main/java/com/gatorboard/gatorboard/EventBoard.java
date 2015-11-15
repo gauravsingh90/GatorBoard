@@ -46,6 +46,8 @@ public class EventBoard extends AppCompatActivity {
     private FloatingActionButton fab1;
     private FloatingActionButton fab2;
     private FloatingActionButton fab3;
+    private FloatingActionButton fab4;
+    private FloatingActionButton fab5;
 
     private List<FloatingActionMenu> menus = new ArrayList<>();
     private Handler mUiHandler = new Handler();
@@ -136,7 +138,7 @@ public class EventBoard extends AppCompatActivity {
         final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
         ImageView imageView = new ImageView(this);
         imageView.setImageResource(R.drawable.ic_menu);
-        final FloatingActionButton programFab1 = new FloatingActionButton(this);
+        /*final FloatingActionButton programFab1 = new FloatingActionButton(this);
         programFab1.setButtonSize(FloatingActionButton.SIZE_MINI);
         programFab1.setLabelText("Academics");
         programFab1.setImageResource(R.drawable.ic_edit);
@@ -146,7 +148,7 @@ public class EventBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(EventBoard.this, programFab1.getLabelText(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         menu1.setOnMenuButtonClickListener(new View.OnClickListener() {
             @Override
@@ -177,13 +179,17 @@ public class EventBoard extends AppCompatActivity {
         fab1 = (FloatingActionButton) findViewById(R.id.fab1);
         fab2 = (FloatingActionButton) findViewById(R.id.fab2);
         fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab4 = (FloatingActionButton) findViewById(R.id.fab4);
+        fab5 = (FloatingActionButton) findViewById(R.id.fab5);
 
         //fab1.setEnabled(false);
 
         fab1.setOnClickListener(clickListener);
         fab2.setOnClickListener(clickListener);
         fab3.setOnClickListener(clickListener);
-
+        fab4.setOnClickListener(clickListener);
+        fab5.setOnClickListener(clickListener);
+        //menu1.toggle(true);
 
 
     }
@@ -256,7 +262,7 @@ public class EventBoard extends AppCompatActivity {
         Log.d("activity_event_board", "Displaying Event: " + event.getEvntName());
         Intent intent = new Intent(this, Event_Details.class);
         intent.putExtra(EVENT_NAME,event.getEvntName());
-        intent.putExtra(EVENT_DESC,event.getEvntDesc());
+        intent.putExtra(EVENT_DESC, event.getEvntDesc());
         startActivityForResult(intent,DETAIL_REQUEST_CODE );
 
     }
@@ -313,15 +319,27 @@ public class EventBoard extends AppCompatActivity {
                     break;
                 case R.id.fab2:
                     text = fab2.getLabelText();
-                    //fab2.setVisibility(View.GONE);
                     break;
                 case R.id.fab3:
                     text = fab3.getLabelText();
-                    fab2.setVisibility(View.VISIBLE);
+                    break;
+                case R.id.fab4:
+                    text = fab4.getLabelText();
+                    break;
+                case R.id.fab5:
+                    text = fab5.getLabelText();
                     break;
             }
 
             Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
+            if (text.equalsIgnoreCase("All")){
+                text = null;
+            }
+            adapter.getFilter().filter(text);
+            final FloatingActionMenu menu1 = (FloatingActionMenu) findViewById(R.id.menu1);
+            menu1.toggle(true);
+
+
         }
     };
 
@@ -336,13 +354,15 @@ public class EventBoard extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
             showDate(arg1, arg2 + 1, arg3);
+
         }
     };
 
     private void showDate(int year, int month, int day) {
-        StringBuilder datepicker=new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year);
-        Toast.makeText(EventBoard.this, datepicker, Toast.LENGTH_SHORT).show();
+        StringBuilder datepicker=new StringBuilder().append(month).append("/")
+                .append(day).append("/").append(year);
+        Toast.makeText(EventBoard.this, datepicker.toString(), Toast.LENGTH_SHORT).show();
+        adapter.getFilter().filter(datepicker.toString());
     }
 
     private class SitesDownloadTask extends AsyncTask<Void, Void, Void>{
@@ -362,9 +382,9 @@ public class EventBoard extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result){
             //setup our Adapter and set it to the ListView.
-            /*SitesXmlPullParser Dpr = new SitesXmlPullParser();
-            Events = Dpr.getEventsFromFile(EventBoard.this);*/
-            adapter = new EventAdapter(EventBoard.this, -1, SitesXmlPullParser.getEventsFromFile(EventBoard.this));
+            /*SitesXmlPullParser Dpr = new SitesXmlPullParser();*/
+            Events = SitesXmlPullParser.getEventsFromFile(EventBoard.this);
+            adapter = new EventAdapter(EventBoard.this, -1, Events);
             listView.setAdapter(adapter);
             Log.i("StackSites", "adapter size = "+ adapter.getCount());
         }

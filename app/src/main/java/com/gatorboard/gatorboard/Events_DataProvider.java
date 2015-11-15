@@ -25,12 +25,12 @@ public class Events_DataProvider {
         Bitmap bMap5= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
         Bitmap bMap6= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
         Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.m);
-        Event ne = new Event();
+        /*Event ne = new Event();
         ne.setEventID("1");
         ne.setEvntName("UF Fall BFA Dance Showcase");
         ne.setBitmap(bMap);
 
-        Events.add(ne);
+        Events.add(ne);*/
 
 
         /*Events.add(new Event(2,"Karillon Recital", evntStartDate, evntStartTime, evntLocation, evntDesc, likes, "A long description for Event 2",bMap1));

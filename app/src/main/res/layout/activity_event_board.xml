@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="Art" />
+            fab:fab_label="All" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab2"
@@ -63,7 +63,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="Food" />
+            fab:fab_label="Arts" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            fab:fab_size="mini"
+            fab:fab_label="Others" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab3"
@@ -71,7 +79,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_edit"
             fab:fab_size="mini"
-            fab:fab_label="Sports" />
+            fab:fab_label="Athletics" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            fab:fab_size="mini"
+            fab:fab_label="Academics" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

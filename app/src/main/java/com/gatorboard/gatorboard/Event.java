@@ -18,6 +18,24 @@ public class Event {
     private String evntImgURL;
     private Bitmap bitmap;
 
+    public Event(String eventID, String evntName, String evntStartDate, String evntStartTime, String evntLocation, String evntDesc,String likes, String catname, String evntImgURL, Bitmap bitmap)
+                 {
+       this.eventID = eventID;
+                     this.evntName=evntName;
+                     this.evntStartDate=evntStartDate;
+                     this.evntStartTime=evntStartTime;
+                     this.evntLocation=evntLocation;
+                     this.evntDesc=evntDesc;
+                     this.likes=likes;
+                     this.catname=catname;
+                     this.evntImgURL=evntImgURL;
+                     this.bitmap=bitmap;
+    }
+
+    public Event(){
+
+    }
+
 
     public String getEventID() {
         return eventID;
