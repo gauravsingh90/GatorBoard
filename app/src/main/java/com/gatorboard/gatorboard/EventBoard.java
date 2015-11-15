@@ -79,8 +79,8 @@ public class EventBoard extends AppCompatActivity {
         listView = (ListView) findViewById(android.R.id.list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setLogo(R.drawable.logo30);
-        toolbar.setTitle(" Gator Board");
+        toolbar.setLogo(R.drawable.logo32dp);
+        toolbar.setTitle("      Gator Board");
         setSupportActionBar(toolbar);
 
         calendar = Calendar.getInstance();
