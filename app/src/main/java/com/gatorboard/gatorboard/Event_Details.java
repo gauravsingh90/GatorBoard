@@ -55,7 +55,7 @@ public class Event_Details extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 //LOCATION BUTTON LISTENER
-        final Button location = (Button) findViewById(R.id.locationbutton);
+      /*  final Button location = (Button) findViewById(R.id.locationbutton);
 
         location.setOnClickListener(new View.OnClickListener() {
 
@@ -65,7 +65,7 @@ public class Event_Details extends ListActivity {
 
 
             }
-        });
+        });*/
 
 
 
