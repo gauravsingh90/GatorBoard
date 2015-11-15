@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean ignoreSplash() {
         if(Util.contatins(this, Util.FILE_NAME, Util.getAppVersionCode(this) + "")){
-            Intent intent=new Intent(MainActivity.this,EventBoard.class);
+            Intent intent=new Intent(MainActivity.this,SplashScreen.class);
             startActivity(intent);
             this.finish();
             return true;
