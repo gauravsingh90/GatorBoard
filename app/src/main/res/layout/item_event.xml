@@ -13,6 +13,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/event_name_placeholder"
+        android:layout_centerVertical="true"
         />
 
     <TextView

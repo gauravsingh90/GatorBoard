@@ -93,13 +93,13 @@ public class EventBoard extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_settings:
-                        Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_share:
-                        Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_calender: {
-                        Toast.makeText(EventBoard.this, "action_calender", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(EventBoard.this, "action_calender", Toast.LENGTH_SHORT).show();
                         showDialog(999);
                     }
                     default:
@@ -337,7 +337,7 @@ public class EventBoard extends AppCompatActivity {
                     break;
             }
 
-            Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
             if (text.equalsIgnoreCase("All")){
                 text = null;
             }
@@ -366,7 +366,7 @@ public class EventBoard extends AppCompatActivity {
     private void showDate(int year, int month, int day) {
         StringBuilder datepicker=new StringBuilder().append(month).append("/")
                 .append(day).append("/").append(year);
-        Toast.makeText(EventBoard.this, datepicker.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(EventBoard.this, datepicker.toString(), Toast.LENGTH_SHORT).show();
         adapter.getFilter().filter(datepicker.toString());
     }
 

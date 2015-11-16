@@ -1,5 +1,9 @@
 package com.gatorboard.gatorboard;
 
+/**
+ * Created by Ken on 11/15/2015.
+ */
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -14,7 +18,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.gatorboard.gatorboard.R;
 
 public class CircleIndicator extends LinearLayout implements ViewPager.OnPageChangeListener {
     private static final int SCROLL_WHAT=0x01;
@@ -23,7 +26,7 @@ public class CircleIndicator extends LinearLayout implements ViewPager.OnPageCha
 
 
     private static final int DEFAULT_CIRCLE_SPACING = 5;
-    private static final int DEFAULT_CIRCLE_COLOR= Color.WHITE;
+    private static final int DEFAULT_CIRCLE_COLOR=Color.WHITE;
     private static final int DEFAULT_CIRCLE_SIZE=3;
     private static final boolean DEFAULT_CIRCLE_AUTO_SCROLL=false;
     private static final int DEFAULT_CIRCLE_SCROLL_DELAY_TIME=3000;

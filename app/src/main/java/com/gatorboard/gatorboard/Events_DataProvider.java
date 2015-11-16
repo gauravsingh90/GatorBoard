@@ -17,14 +17,14 @@ public class Events_DataProvider {
 
     public Events_DataProvider(Context context){
         Context ctx = context;
-        Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.d);
+        /*Bitmap bMap= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.d);
         Bitmap bMap1= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.k);
        // Bitmap bMap2= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.marathon);
         Bitmap bMap3= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.p);
         //Bitmap bMap4= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.recital);
         Bitmap bMap5= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
         Bitmap bMap6= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.s);
-        Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.m);
+        Bitmap bMap7= BitmapFactory.decodeResource(ctx.getResources(),R.drawable.m);*/
         /*Event ne = new Event();
         ne.setEventID("1");
         ne.setEvntName("UF Fall BFA Dance Showcase");
