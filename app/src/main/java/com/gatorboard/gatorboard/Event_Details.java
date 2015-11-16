@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import java.util.HashMap;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -17,9 +18,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.graphics.Bitmap;
 import android.widget.Toast;
 import com.gatorboard.gatorboard.urlRequester;
 import com.gatorboard.gatorboard.urlConnectionManager;
@@ -37,6 +40,8 @@ public class Event_Details extends ListActivity {
     protected String EventName;
     protected String EventDesc;
     protected String Elikes;
+    protected String Ecategory;
+    protected String Eimages;
 
     public int counter =0;
     HashMap<String, String> meMap=new HashMap<String, String>();
@@ -77,12 +82,34 @@ public class Event_Details extends ListActivity {
         EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
         eDesc.setText(EventDesc);
-
+        Ecategory = getIntent().getStringExtra(EventBoard.EVENT_CATEGORY);
 
 
         Elikes = getIntent().getStringExtra(EventBoard.EVENT_LIKES);
        TextView eLike = (TextView) findViewById(R.id.likeCount);
         eLike.setText(String.valueOf(Elikes));
+
+        ImageView im = (ImageView) findViewById(R.id.img);
+
+        if ( Ecategory.equalsIgnoreCase("arts")){
+            im.setImageResource(R.drawable.arts);
+
+        }
+        else if(Ecategory.equalsIgnoreCase("Academics")){
+            im.setImageResource(R.drawable.academics);
+
+        }
+        else if(Ecategory.equalsIgnoreCase("Athletics")){
+            im.setImageResource(R.drawable.atheletics);
+
+        }
+        else {
+            im.setImageResource(R.drawable.o);
+
+        }
+
+
+
 
 
 
@@ -233,8 +260,6 @@ public class Event_Details extends ListActivity {
             if (tasks.size() == 0) {
                 pb.setVisibility(View.INVISIBLE);
             }
-
-
 
         }
 

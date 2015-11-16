@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/img"
             android:layout_width="380dp"
-            android:layout_height="wrap_content"
+            android:layout_height="280dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/soccer"
@@ -48,24 +48,21 @@
         android:layout_below="@+id/frameLayout" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView3" />
+
 
 
 <ScrollView
 android:layout_width="fill_parent"
-android:layout_height="fill_parent"
+
 android:id="@+id/scrollView"
-android:layout_below="@+id/textView2" >
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:layout_below="@+id/likebutton">
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+        android:text="XXX "
         android:id="@+id/textView"
         android:padding="@dimen/abc_action_bar_content_inset_material"
         android:outlineProvider="paddedBounds"
