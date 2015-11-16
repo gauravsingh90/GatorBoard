@@ -7,22 +7,22 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="wrap_content"></ListView>
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/frameLayout"
         android:padding="@dimen/abc_action_bar_content_inset_material">
+
         <ImageView
             android:id="@+id/img"
             android:layout_width="380dp"
             android:layout_height="280dp"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/soccer"
-            android:layout_gravity="center" />
+            android:src="@drawable/soccer" />
 
         <TextView
             android:id="@+id/txtStoreName"
@@ -35,79 +35,153 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Information"
-        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/frameLayout"
+        android:layout_alignEnd="@+id/scrollView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/scrollView"
-        android:layout_alignEnd="@+id/scrollView"
-        android:layout_alignBottom="@+id/frameLayout"
-        android:layout_below="@+id/frameLayout" />
+        android:layout_below="@+id/frameLayout"
+        android:text="Information"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-<ScrollView
-android:layout_width="fill_parent"
+    <ScrollView
+        android:id="@+id/scrollView"
 
-android:id="@+id/scrollView"
-    android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:layout_below="@+id/likebutton">
-    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="XXX "
-        android:id="@+id/textView"
-        android:padding="@dimen/abc_action_bar_content_inset_material"
-        android:outlineProvider="paddedBounds"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="42dp" />
-</ScrollView>
+        android:layout_below="@+id/likebutton"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/textView3"
+                android:layout_marginTop="42dp"
+                android:outlineProvider="paddedBounds"
+                android:padding="@dimen/abc_action_bar_content_inset_material"
+                android:text="XXX "
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/StartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Start Date: "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />/>
+
+                <TextView
+                    android:id="@+id/textStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/StartDate"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />/>
+
+                <TextView
+                    android:id="@+id/textStartTime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textStartDate"
+                    android:layout_toEndOf="@+id/StartTime"
+                    android:layout_toRightOf="@+id/StartTime"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/StartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/StartDate"
+                    android:layout_toLeftOf="@+id/textStartDate"
+                    android:layout_toStartOf="@+id/textStartDate"
+                    android:text="Start Time: "
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textRemTime"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_below="@+id/textStartTime"-->
+                    <!--android:layout_toRightOf="@+id/RemTime"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/RemTime"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignLeft="@+id/StartTime"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_alignStart="@+id/StartTime"-->
+                    <!--android:text="Remaining Time:"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
+        android:id="@+id/likebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/likebutton"
+        android:layout_below="@+id/frameLayout"
+
+        android:layout_toLeftOf="@+id/likeCount"
+        android:layout_toStartOf="@+id/likeCount"
 
         android:background="@drawable/like"
         android:minWidth="50dp"
-
-        android:layout_below="@+id/frameLayout"
-        android:layout_toLeftOf="@+id/likeCount"
-        android:layout_toStartOf="@+id/likeCount" />
+        android:text="" />
 
     <TextView
+        android:id="@+id/likeCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="25"
-        android:minWidth="50dp"
-        android:id="@+id/likeCount"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_below="@+id/textView2"
+        android:layout_alignEnd="@android:id/list"
         android:layout_alignRight="@android:id/list"
-        android:layout_alignEnd="@android:id/list" />
-
+        android:layout_below="@+id/textView2"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:gravity="center"
+        android:minWidth="50dp"
+        android:text="25"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="25dp" />
 
 
     <Button
+        android:id="@+id/locationbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
-        android:id="@+id/locationbutton"
-        android:visibility="gone"
         android:layout_below="@+id/frameLayout"
+        android:layout_toEndOf="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+        android:text="Location"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

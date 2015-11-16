@@ -41,6 +41,8 @@ public class Event_Details extends ListActivity {
     protected String EventDesc;
     protected String Elikes;
     protected String Ecategory;
+    protected String EventStartTime;
+    protected String EventStartDate;
     protected String Eimages;
 
     public int counter =0;
@@ -82,6 +84,12 @@ public class Event_Details extends ListActivity {
         EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
         eDesc.setText(EventDesc);
+        EventStartDate = getIntent().getStringExtra(EventBoard.EVENT_START_DATE);
+        TextView eStartDate = (TextView) findViewById(R.id.textStartDate);
+        eStartDate.setText(EventStartDate);
+        EventStartTime = getIntent().getStringExtra(EventBoard.EVENT_START_TIME);
+        TextView eStartTime = (TextView) findViewById(R.id.textStartTime);
+        eStartTime.setText(EventStartTime);
         Ecategory = getIntent().getStringExtra(EventBoard.EVENT_CATEGORY);
 
 
@@ -104,7 +112,7 @@ public class Event_Details extends ListActivity {
 
         }
         else {
-            im.setImageResource(R.drawable.others_image);
+            im.setImageResource(R.drawable.others_image);//replace with original value
 
         }
 

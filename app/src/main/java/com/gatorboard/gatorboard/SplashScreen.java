@@ -32,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 iv.startAnimation(an2);
                 finish();
-                Intent i = new Intent(getBaseContext(), EventBoard.class);
+                Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
             }
 

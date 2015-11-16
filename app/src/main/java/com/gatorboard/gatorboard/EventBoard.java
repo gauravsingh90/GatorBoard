@@ -68,6 +68,8 @@ public class EventBoard extends AppCompatActivity {
     public static final String EVENT_LIKES = "likes";
     public static final String EVENT_IMAGEURL = "evntImgURL";
     public static final String EVENT_CATEGORY="catname";
+    public static final String EVENT_START_DATE = "eventStartDate";
+    public static final String EVENT_START_TIME = "eventStartTIme";
     public static final int DETAIL_REQUEST_CODE =  1001;
 
 
@@ -272,6 +274,8 @@ public class EventBoard extends AppCompatActivity {
         intent.putExtra(EVENT_LIKES,event.getLikes());
         intent.putExtra(EVENT_IMAGEURL,event.getEvntImgURL());
         intent.putExtra(EVENT_CATEGORY,event.getCatname());
+        intent.putExtra(EVENT_START_DATE,event.getEvntStartDate());
+        intent.putExtra(EVENT_START_TIME,event.getEvntStartTime());
         startActivityForResult(intent,DETAIL_REQUEST_CODE );
 
     }

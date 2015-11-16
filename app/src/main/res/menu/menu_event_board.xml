@@ -26,5 +26,10 @@
         android:title="action_calender"
         android:icon="@drawable/calenderpress"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="110"
+        android:title="Help"/>
 </menu>
 

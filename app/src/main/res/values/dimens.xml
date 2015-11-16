@@ -4,4 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="navdrawer_width">260dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="title_height">45dip</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
 </resources>
