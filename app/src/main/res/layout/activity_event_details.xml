@@ -48,9 +48,6 @@
         android:layout_below="@+id/frameLayout" />
 
 
-
-
-
 <ScrollView
 android:layout_width="fill_parent"
 
