@@ -106,16 +106,16 @@ public class SitesXmlPullParser {
                             curEvent.setCatname(curText);
                             Bitmap bMap ;
                             if (curText.equalsIgnoreCase("arts")){
-                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.arts);
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.artbg);
                             }
                             else if(curText.equalsIgnoreCase("Academics")){
-                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.academics);
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.academicsbg);
                             }
                             else if(curText.equalsIgnoreCase("Athletics")){
-                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.atheletics);
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.sportbg);
                             }
                             else {
-                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.o);
+                                 bMap= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.othersbg);
                             }
 
                             curEvent.setBitmap(bMap);
