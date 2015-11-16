@@ -96,7 +96,7 @@ public class Event_Details extends ListActivity {
 
         }
         else if(Ecategory.equalsIgnoreCase("Academics")){
-            im.setImageResource(R.drawable.academics);
+            im.setImageResource(R.drawable.academic);
 
         }
         else if(Ecategory.equalsIgnoreCase("Athletics")){
@@ -104,7 +104,7 @@ public class Event_Details extends ListActivity {
 
         }
         else {
-            im.setImageResource(R.drawable.o);
+            im.setImageResource(R.drawable.others_image);
 
         }
 
