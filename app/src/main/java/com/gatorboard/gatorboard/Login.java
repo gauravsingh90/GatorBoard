@@ -76,6 +76,8 @@ public class Login extends AppCompatActivity{
                             if (bindResult.getResultCode() == ResultCode.SUCCESS) {
 
                                 Intent intent = new Intent(v.getContext(), EventBoard.class);
+                                Toast.makeText(getApplicationContext(),"Login Successful.",Toast.LENGTH_LONG).show();
+//
                                 //intent.putExtra("ufid", name);
 //                                startActivity(intent);
                                 startActivityForResult(intent, 0);
