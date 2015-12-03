@@ -142,14 +142,7 @@ public class Event_Details extends ListActivity {
                 myList.add(EventName);
                 myList.add("test");
                 myList.add("test");
-                //myList.add("test");
-                /*String[] simpleArray = new String[ myList.size() ];
-                myList.toArray( simpleArray );
-                Bundle b=new Bundle();
-               // b.putStringArray("key", new String[]{"value1", "value2"});
-                b.putStringArray("key", simpleArray);*/
-                //SharedPreferences sharedPreferences = getPreferences(MODE_WORLD_READABLE);
-                //SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = myPrefs.edit();
 
@@ -222,7 +215,7 @@ public class Event_Details extends ListActivity {
 
             }
         });
-        //eDesc.setMovementMethod(new ScrollingMovementMethod());*/
+
     }
 
     @Override

@@ -164,8 +164,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/stockbutton"
-        android:layout_marginLeft="42dp"
-        android:layout_marginStart="42dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="2dp"
         android:layout_below="@+id/frameLayout"
         android:background="@drawable/stock"
         android:minWidth="50dp"
@@ -187,8 +187,17 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="25dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Trending"
+        android:id="@+id/textView4"
+        android:textColor="#fffeee"
+        android:layout_toRightOf="@+id/stockbutton"
 
-
+        android:layout_below="@+id/frameLayout"
+        android:layout_above="@+id/scrollView" />
 
 
 </RelativeLayout>
