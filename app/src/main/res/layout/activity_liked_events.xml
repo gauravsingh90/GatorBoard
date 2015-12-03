@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.gatorboard.gatorboard.LikedEvents">
+
+
+    <ListView
+
+        android:id="@+id/likelist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:dividerHeight="5dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="70dp"
+        android:layout_below="@+id/titleTextView"
+        android:layout_toRightOf="@+id/backbutton"
+        android:layout_toEndOf="@+id/backbutton">
+    </ListView>
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout"
+        android:background="@drawable/like"
+        android:minWidth="50dp"
+        android:text="" />
+
+    <TextView
+    android:id="@+id/titleTextView"
+    android:layout_width="270dp"
+    android:layout_height="40dp"
+        android:text="LIKED EVENTS"
+        android:layout_alignBottom="@+id/backbutton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
@@ -21,7 +22,7 @@ import android.os.AsyncTask;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
+import  java.util.Date;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ public class EventBoard extends AppCompatActivity {
     private FloatingActionButton fab3;
     private FloatingActionButton fab4;
     private FloatingActionButton fab5;
+    private FloatingActionButton fab6;
 
     private List<FloatingActionMenu> menus = new ArrayList<>();
     private Handler mUiHandler = new Handler();
@@ -76,6 +78,9 @@ public class EventBoard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         Log.i("StackSites", "OnCreate()");
         setContentView(R.layout.activity_event_board);
 
@@ -188,6 +193,7 @@ public class EventBoard extends AppCompatActivity {
         fab3 = (FloatingActionButton) findViewById(R.id.fab3);
         fab4 = (FloatingActionButton) findViewById(R.id.fab4);
         fab5 = (FloatingActionButton) findViewById(R.id.fab5);
+        fab6 = (FloatingActionButton) findViewById(R.id.fab6);
 
         //fab1.setEnabled(false);
 
@@ -196,6 +202,7 @@ public class EventBoard extends AppCompatActivity {
         fab3.setOnClickListener(clickListener);
         fab4.setOnClickListener(clickListener);
         fab5.setOnClickListener(clickListener);
+        fab6.setOnClickListener(clickListener);
         //menu1.toggle(true);
 
 
@@ -342,7 +349,18 @@ public class EventBoard extends AppCompatActivity {
                 case R.id.fab5:
                     text = fab5.getLabelText();
                     break;
+                case R.id.fab6:
+
+
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+                    String formattedDate = df.format(c.getTime());
+                    System.out.println("Current time => " + formattedDate);
+
+                    text = formattedDate.toString();
+                    break;
             }
+
 
             //Toast.makeText(EventBoard.this, text, Toast.LENGTH_SHORT).show();
             if (text.equalsIgnoreCase("All")){
@@ -367,6 +385,12 @@ public class EventBoard extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
             showDate(arg1, arg2 + 1, arg3);
+
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+            String formattedDate = df.format(c.getTime());
+            System.out.println("Current time => " + formattedDate);
+
         }
     };
 

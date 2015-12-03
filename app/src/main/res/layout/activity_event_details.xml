@@ -32,6 +32,16 @@
             android:text="Display Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frameLayout"
+            android:background="@drawable/like"
+            android:minWidth="50dp"
+            android:text=""
+            android:layout_gravity="left|top" />
+
     </FrameLayout>
 
     <TextView
@@ -173,15 +183,7 @@
         android:textSize="25dp" />
 
 
-    <Button
-        android:id="@+id/locationbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
-        android:text="Location"
-        android:visibility="gone" />
+
 
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import java.util.HashMap;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -29,10 +30,13 @@ import com.gatorboard.gatorboard.urlConnectionManager;
 import com.gatorboard.gatorboard.eventParser;
 import com.gatorboard.gatorboard.eventDescParser;
 import com.gatorboard.gatorboard.EventDesc;
+import com.gatorboard.gatorboard.LikedEvents;
+
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
 
 
 public class Event_Details extends ListActivity {
@@ -44,6 +48,11 @@ public class Event_Details extends ListActivity {
     protected String EventStartTime;
     protected String EventStartDate;
     protected String Eimages;
+
+
+
+    List<String> myList = new ArrayList<String>();
+
 
     public int counter =0;
     HashMap<String, String> meMap=new HashMap<String, String>();
@@ -77,6 +86,10 @@ public class Event_Details extends ListActivity {
 
 
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.activity_event_details);
         EventName = getIntent().getStringExtra(EventBoard.EVENT_NAME);
         TextView eTitle = (TextView) findViewById(R.id.txtStoreName);
@@ -100,27 +113,21 @@ public class Event_Details extends ListActivity {
         ImageView im = (ImageView) findViewById(R.id.img);
 
         if ( Ecategory.equalsIgnoreCase("arts")){
-            im.setImageResource(R.drawable.arts);
+            im.setImageResource(R.drawable.art);
 
         }
         else if(Ecategory.equalsIgnoreCase("Academics")){
-            im.setImageResource(R.drawable.academic);
+            im.setImageResource(R.drawable.academics);
 
         }
         else if(Ecategory.equalsIgnoreCase("Athletics")){
-            im.setImageResource(R.drawable.atheletics);
+            im.setImageResource(R.drawable.sport);
 
         }
         else {
             im.setImageResource(R.drawable.others_image);//replace with original value
 
         }
-
-
-
-
-
-
 
 
 
@@ -131,6 +138,35 @@ public class Event_Details extends ListActivity {
             @Override
 
             public void onClick(View v) {
+
+                myList.add(EventName);
+                myList.add("test");
+                myList.add("test");
+                //myList.add("test");
+                /*String[] simpleArray = new String[ myList.size() ];
+                myList.toArray( simpleArray );
+                Bundle b=new Bundle();
+               // b.putStringArray("key", new String[]{"value1", "value2"});
+                b.putStringArray("key", simpleArray);*/
+                //SharedPreferences sharedPreferences = getPreferences(MODE_WORLD_READABLE);
+                //SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+
+                String[] simpleArray = new String[ myList.size() ];
+                myList.toArray( simpleArray );
+                int[] list = new int[10];
+
+                StringBuilder str = new StringBuilder();
+                for (int i = 0; i < myList.size(); i++) {
+                    str.append(simpleArray[i]).append(",");
+                }
+                editor.putString("string", str.toString());
+                editor.commit();
+
+                Intent myIntent = new Intent(Event_Details.this, LikedEvents.class);
+               //myIntent.putExtras(b);
+                Event_Details.this.startActivity(myIntent);
 
               TextView  eLiket = (TextView) findViewById(R.id.likeCount);
                 //incrementing like count
@@ -152,6 +188,11 @@ public class Event_Details extends ListActivity {
                     like.setClickable(false);
                     like.setBackgroundResource(R.drawable.like_click);
 
+                    //storage
+
+                    //
+
+
                 }
                 else
                 {
@@ -164,7 +205,25 @@ public class Event_Details extends ListActivity {
             }
         });
 
+        final Button back = (Button) findViewById(R.id.backbutton);
 
+        back.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+
+            public void onClick(View v) {
+                //Bundle b=new Bundle();
+                // b.putStringArray("key", new String[]{"value1", "value2"});
+
+
+
+                finish();
+                //super.onBackPressed();
+
+
+            }
+        });
         //eDesc.setMovementMethod(new ScrollingMovementMethod());*/
     }
 
