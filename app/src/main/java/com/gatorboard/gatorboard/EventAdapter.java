@@ -91,7 +91,7 @@ public class EventAdapter extends ArrayAdapter<Event> implements Filterable {
                 constraint = constraint.toString().toUpperCase();
                 List<Event> filters = new ArrayList<Event>();
                 for(int i = 0; i< filterList.size();i++){
-                    if(filterList.get(i).getCatname().toUpperCase().contains(constraint) ||  filterList.get(i).getEvntStartDate().equalsIgnoreCase(constraint.toString().trim())){
+                    if(filterList.get(i).getCatname().toUpperCase().contains(constraint) ||  filterList.get(i).getEvntStartDate().equalsIgnoreCase(constraint.toString().trim())||filterList.get(i).getEvntName().toUpperCase().contains(constraint)){
                         Event e = new Event(filterList.get(i).getEventID(),filterList.get(i).getEvntName(),filterList.get(i).getEvntStartDate(),filterList.get(i).getEvntStartTime(), filterList.get(i).getEvntLocation(), filterList.get(i).getEvntDesc(),filterList.get(i).getLikes(),filterList.get(i).getCatname(),filterList.get(i).getEvntImgURL(),filterList.get(i).getBitmap());
                         filters.add(e);
                     }

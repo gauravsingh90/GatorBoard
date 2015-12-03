@@ -6,6 +6,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.gatorboard.gatorboard.LikedEvents">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg2"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+    </android.support.v7.widget.Toolbar>
 
     <ListView
 
@@ -16,25 +24,29 @@
         android:dividerHeight="5dp"
         android:layout_alignParentTop="true"
         android:paddingTop="70dp"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toRightOf="@+id/backbutton"
-        android:layout_toEndOf="@+id/backbutton">
+        android:layout_below="@+id/toolbar"
+        android:layout_toEndOf="@+id/backbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     </ListView>
     <Button
         android:id="@+id/backbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/frameLayout"
-        android:background="@drawable/like"
+        android:background="@drawable/stock"
         android:minWidth="50dp"
         android:text="" />
 
     <TextView
-    android:id="@+id/titleTextView"
-    android:layout_width="270dp"
-    android:layout_height="40dp"
-        android:text="LIKED EVENTS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Trending Events"
+        android:id="@+id/textView3"
+        android:gravity="center_horizontal"
         android:layout_alignBottom="@+id/backbutton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/toolbar" />
 
 </RelativeLayout>

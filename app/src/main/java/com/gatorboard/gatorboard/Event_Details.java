@@ -205,21 +205,19 @@ public class Event_Details extends ListActivity {
             }
         });
 
-        final Button back = (Button) findViewById(R.id.backbutton);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        final Button stock = (Button) findViewById(R.id.stockbutton);
+
+        stock.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
 
             public void onClick(View v) {
-                //Bundle b=new Bundle();
-                // b.putStringArray("key", new String[]{"value1", "value2"});
 
-
-
-                finish();
-                //super.onBackPressed();
+                Intent myIntent = new Intent(Event_Details.this, LikedEvents.class);
+                //myIntent.putExtras(b);
+                Event_Details.this.startActivity(myIntent);
 
 
             }
