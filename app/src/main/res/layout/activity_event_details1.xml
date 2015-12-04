@@ -41,7 +41,6 @@
                 android:layout_gravity="left|bottom"
                 android:text="Display Text"
                 android:paddingBottom="10dp"
-
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000000" />

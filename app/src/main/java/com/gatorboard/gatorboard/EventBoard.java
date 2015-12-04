@@ -100,9 +100,9 @@ public class EventBoard extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_settings:
-                        //Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
-                        break;
+//                    case R.id.action_settings:
+//                        //Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
+//                        break;
 //                    case R.id.action_share:
 //                        //Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
 //                        break;
