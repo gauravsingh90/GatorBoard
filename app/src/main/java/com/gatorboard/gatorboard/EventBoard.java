@@ -351,13 +351,23 @@ public class EventBoard extends AppCompatActivity {
                     break;
                 case R.id.fab6:
 
-
+                    int dy=4;
+                    int yr=2015;
+                    int mn=12;
                     Calendar c = Calendar.getInstance();
-                    SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
-                    String formattedDate = df.format(c.getTime());
-                    System.out.println("Current time => " + formattedDate);
-
-                    text = formattedDate.toString();
+                    SimpleDateFormat m = new SimpleDateFormat("MM");
+                    SimpleDateFormat d = new SimpleDateFormat("dd");
+                    SimpleDateFormat y = new SimpleDateFormat("yyyy");
+                    String formattedMonth = m.format(c.getTime());
+                    String formattedDay = d.format(c.getTime());
+                    String formattedYear = y.format(c.getTime());
+                    System.out.println("Current time => " + formattedMonth);
+                    System.out.println("Current time => " + formattedDay);
+                    System.out.println("Current time => " + formattedYear);
+                    StringBuilder datepicker=new StringBuilder().append(mn).append("/")
+                            .append(dy).append("/").append(yr);
+                    System.out.println("date picker => " +datepicker.toString());
+                    text = datepicker.toString();
                     break;
             }
 
@@ -386,10 +396,11 @@ public class EventBoard extends AppCompatActivity {
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
             showDate(arg1, arg2 + 1, arg3);
 
-            Calendar c = Calendar.getInstance();
-            SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
-            String formattedDate = df.format(c.getTime());
-            System.out.println("Current time => " + formattedDate);
+
+            System.out.println("arg1 => " + arg1);
+            System.out.println("arg2 => " + arg2);
+            System.out.println("arg2+1 => " + arg2+1);
+            System.out.println("arg3 => " + arg3);
 
         }
     };
@@ -397,6 +408,7 @@ public class EventBoard extends AppCompatActivity {
     private void showDate(int year, int month, int day) {
         StringBuilder datepicker=new StringBuilder().append(month).append("/")
                 .append(day).append("/").append(year);
+        System.out.println("date picker in show date" +datepicker.toString());
         //Toast.makeText(EventBoard.this, datepicker.toString(), Toast.LENGTH_SHORT).show();
         adapter.getFilter().filter(datepicker.toString());
     }

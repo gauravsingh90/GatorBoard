@@ -154,7 +154,6 @@ public class LikedEvents extends AppCompatActivity {
                // finish();
 
 
-
             }
         });
 
