@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg1">
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:divider="#000000">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="500dp"
+                android:layout_height="200dp"
+                android:src="@drawable/soccer"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/txtStoreName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="left|bottom"
+                android:text="Display Text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000" />
+        </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text=""
+                android:id="@+id/textView7" />
+
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginbutton">
+            <Button
+                android:id="@+id/likebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/like2"
+                android:minWidth="50dp"
+                android:text=""
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/likeCount"
+                android:layout_toStartOf="@+id/likeCount" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/stockbutton"
+                android:background="@drawable/stock"
+                android:minWidth="50dp"
+                android:layout_marginLeft="39dp"
+                android:layout_marginStart="39dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/likeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="50dp"
+                android:text="25"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="25dp"
+                android:layout_marginRight="74dp"
+                android:layout_marginEnd="74dp"
+                android:layout_alignTop="@+id/textView4"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Trending"
+                android:id="@+id/textView4"
+                android:textColor="#fffeee"
+
+                android:layout_alignBottom="@+id/stockbutton"
+                android:layout_toRightOf="@+id/stockbutton"
+                android:layout_toEndOf="@+id/stockbutton" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:outlineProvider="paddedBounds"
+                android:padding="@dimen/abc_action_bar_content_inset_material"
+                android:text="XXX "
+                android:textSize="20sp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@drawable/loginbutton"/>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textView3"
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
