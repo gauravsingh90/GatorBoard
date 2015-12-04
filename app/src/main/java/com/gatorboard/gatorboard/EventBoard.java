@@ -103,9 +103,25 @@ public class EventBoard extends AppCompatActivity {
                     case R.id.action_settings:
                         //Toast.makeText(EventBoard.this, "action_settings", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.action_share:
-                        //Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
-                        break;
+//                    case R.id.action_share:
+//                        //Toast.makeText(EventBoard.this, "action_share", Toast.LENGTH_SHORT).show();
+//                        break;
+                    case R.id.contact_us: {
+                        Intent contactusIntent = new Intent(EventBoard.this, ContactusActivity.class);
+                        startActivity(contactusIntent);
+                    }break;
+
+                    case R.id.about: {
+                        Intent aboutIntent = new Intent(EventBoard.this, About.class);
+                        startActivity(aboutIntent);
+                    }break;
+
+                    case R.id.logout: {
+                        Intent logoutIntent = new Intent(EventBoard.this, Login.class);
+                        startActivity(logoutIntent);
+                        Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_LONG).show();
+                    }break;
+
                     case R.id.action_calender: {
                         //Toast.makeText(EventBoard.this, "action_calender", Toast.LENGTH_SHORT).show();
                         showDialog(999);
@@ -207,6 +223,16 @@ public class EventBoard extends AppCompatActivity {
 
 
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_event_board, menu);
+        return true;
+
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -217,10 +243,8 @@ public class EventBoard extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
     @Override
@@ -230,12 +254,6 @@ public class EventBoard extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_event_board, menu);
-        return true;
-    }
 
 
 

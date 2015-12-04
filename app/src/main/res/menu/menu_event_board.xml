@@ -13,12 +13,12 @@
         android:title="action_search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/action_share"
-        android:orderInCategory="90"
-        android:title="Share"
-        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
-        app:showAsAction="ifRoom"/>
+    <!--<item-->
+        <!--android:id="@+id/action_share"-->
+        <!--android:orderInCategory="90"-->
+        <!--android:title="Share"-->
+        <!--app:actionProviderClass="android.support.v7.widget.ShareActionProvider"-->
+        <!--app:showAsAction="never"/>-->
 
     <item
         android:id="@+id/action_calender"
@@ -30,6 +30,24 @@
     <item
         android:id="@+id/action_help"
         android:orderInCategory="110"
-        android:title="Help"/>
-</menu>
+        android:title="Help"
+        android:showAsAction="never"/>
 
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="120"
+        android:title="@string/about"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/contact_us"
+        android:orderInCategory="130"
+        android:title="@string/contactus"
+        app:showAsAction="never" />
+
+    <item
+        android:id ="@+id/logout"
+        android:orderInCategory="140"
+        android:showAsAction="never"
+        android:title="@string/logout" />
+</menu>

@@ -12,22 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/transparent"
-        android:fillViewport="true"
-        ></android.support.v4.view.ViewPager>
+        android:fillViewport="true"></android.support.v4.view.ViewPager>
 
     <com.gatorboard.gatorboard.CircleIndicator
         android:id="@+id/circle_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
-        indicator:circle_spacing="5dp"
-        indicator:circle_radius="3dp"
-        indicator:circle_fill_color="#728bff"
-        indicator:circle_stroke_color="#aaa"
+        android:gravity="center_horizontal"
+        android:transitionGroup="false"
         indicator:circle_auto_scroll="true"
-        android:transitionGroup="false">
+        indicator:circle_fill_color="#728bff"
+        indicator:circle_radius="3dp"
+        indicator:circle_spacing="5dp"
+        indicator:circle_stroke_color="#aaa">
 
     </com.gatorboard.gatorboard.CircleIndicator>
 </RelativeLayout>

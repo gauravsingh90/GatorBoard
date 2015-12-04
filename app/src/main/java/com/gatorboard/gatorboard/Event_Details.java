@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -90,19 +91,25 @@ public class Event_Details extends ListActivity {
 
 
 
-        setContentView(R.layout.activity_event_details);
+        setContentView(R.layout.activity_event_details1);
         EventName = getIntent().getStringExtra(EventBoard.EVENT_NAME);
         TextView eTitle = (TextView) findViewById(R.id.txtStoreName);
         eTitle.setText(EventName);
+
+        EventStartDate = getIntent().getStringExtra(EventBoard.EVENT_START_DATE);
+        EventStartTime = getIntent().getStringExtra(EventBoard.EVENT_START_TIME);
+
         EventDesc = getIntent().getStringExtra(EventBoard.EVENT_DESC);
         TextView eDesc = (TextView) findViewById(R.id.textView);
-        eDesc.setText(EventDesc);
-        EventStartDate = getIntent().getStringExtra(EventBoard.EVENT_START_DATE);
-        TextView eStartDate = (TextView) findViewById(R.id.textStartDate);
-        eStartDate.setText(EventStartDate);
-        EventStartTime = getIntent().getStringExtra(EventBoard.EVENT_START_TIME);
-        TextView eStartTime = (TextView) findViewById(R.id.textStartTime);
-        eStartTime.setText(EventStartTime);
+        eDesc.setText(EventDesc + "\nStart Date:  "+EventStartDate+"\nStartTime:  "+EventStartTime);
+
+        Typeface cd = Typeface.createFromAsset(getAssets(), "fonts/Calibri.ttf");
+        eDesc.setTypeface(cd);
+
+//        TextView eStartDate = (TextView) findViewById(R.id.textStartDate);
+//        eStartDate.setText(EventStartDate);
+//        TextView eStartTime = (TextView) findViewById(R.id.textStartTime);
+//        eStartTime.setText(EventStartTime);
         Ecategory = getIntent().getStringExtra(EventBoard.EVENT_CATEGORY);
 
 
@@ -113,19 +120,19 @@ public class Event_Details extends ListActivity {
         ImageView im = (ImageView) findViewById(R.id.img);
 
         if ( Ecategory.equalsIgnoreCase("arts")){
-            im.setImageResource(R.drawable.art);
+            im.setImageResource(R.drawable.art1);
 
         }
         else if(Ecategory.equalsIgnoreCase("Academics")){
-            im.setImageResource(R.drawable.academics);
+            im.setImageResource(R.drawable.academics1);
 
         }
         else if(Ecategory.equalsIgnoreCase("Athletics")){
-            im.setImageResource(R.drawable.sport);
+            im.setImageResource(R.drawable.sports1);
 
         }
         else {
-            im.setImageResource(R.drawable.others_image);//replace with original value
+            im.setImageResource(R.drawable.others_image1);//replace with original value
 
         }
 
@@ -179,7 +186,7 @@ public class Event_Details extends ListActivity {
                 if(flag==1) {
                     like.setEnabled(false);
                     like.setClickable(false);
-                    like.setBackgroundResource(R.drawable.like_click);
+                    like.setBackgroundResource(R.drawable.like_click3);
 
                     //storage
 

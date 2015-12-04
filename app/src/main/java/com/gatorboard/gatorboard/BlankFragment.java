@@ -79,7 +79,7 @@ public class BlankFragment extends Fragment {
                 public void onClick(View v) {
                     int versionCode=Util.getAppVersionCode(getActivity());
                     Util.set(getActivity(),Util.FILE_NAME,versionCode+"",true);
-                    Intent intent=new Intent(getActivity(),LoginActivity.class);
+                    Intent intent=new Intent(getActivity(),Login.class);
                     startActivity(intent);
                     getActivity().finish();
                 }

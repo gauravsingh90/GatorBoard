@@ -5,6 +5,8 @@ package com.gatorboard.gatorboard;
  */
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,8 @@ import com.unboundid.ldap.sdk.SimpleBindRequest;
 import com.unboundid.util.ssl.SSLUtil;
 import com.unboundid.util.ssl.TrustAllTrustManager;
 
+import org.w3c.dom.Text;
+
 import java.security.GeneralSecurityException;
 
 import javax.net.SocketFactory;
@@ -39,8 +43,10 @@ public class Login extends AppCompatActivity{
 
 
         TextView tx = (TextView) findViewById(R.id.Title);
-        //Typeface cd = Typeface.createFromAsset(getAssets(), "fonts/Caviar_Dreams_Bold.ttf");
-        //tx.setTypeface(cd);
+        Typeface cd = Typeface.createFromAsset(getAssets(), "fonts/century_gothic.ttf");
+        tx.setTypeface(cd);
+
+        TextView txClickHere = (TextView) findViewById((R.id.textView19));
 
 
         //  myDB = new DatabaseHelper(this);
@@ -102,6 +108,18 @@ public class Login extends AppCompatActivity{
                 }
 
         );
+
+        txClickHere.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("https://login.ufl.edu/idp/Authn/UserPassword"));
+//                        goToUrl("https://my.ufl.edu/psp/ps_pwd/EMPLOYEE/EMPL/c/MAINTAIN_SECURITY.UF_PA_FORGOT_PSWD.GBL");
+                        startActivity(intent);
+            }
+        });
 
 
     }
